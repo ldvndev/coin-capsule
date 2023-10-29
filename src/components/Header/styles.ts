@@ -7,7 +7,7 @@ export const Container = styled.header`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  padding: 2rem 1rem 1rem;
+  padding: 2rem 1rem 5rem;
 
   .link {
     text-decoration: none;

@@ -8,6 +8,9 @@ export const GlobalStyle = createGlobalStyle`
 
     --text-title: #E1E1E6;
     --base-text: #C4C4CC;
+
+    --green: #00875F;
+    --red: #F75A68;
   }
 
   * {
