@@ -1,6 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+  :root {
+    --background: #191622;
+    --shape: #252131;
+    --highlight: #7155d9;
+
+    --text-base: #ffffff;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -18,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    background: var(--background);
     -webkit-font-smoothing: antialiased;
   }
 
