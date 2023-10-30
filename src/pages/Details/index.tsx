@@ -1,5 +1,12 @@
+import { Container } from "./styles";
+import { useParams } from 'react-router-dom';
+
 export function Details() {
+  const { cripto } = useParams();
+
   return(
-    <h2>Details</h2>
+    <Container>
+      <h1>Pagina detalhes: { cripto }</h1>
+    </Container>
   );
 }

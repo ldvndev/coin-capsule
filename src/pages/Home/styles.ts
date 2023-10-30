@@ -9,14 +9,13 @@ export const Container = styled.main`
     
     th {
       font-family: 'Inter', sans-serif;
+      font-size: 1.3rem;
       font-weight: 900;
       letter-spacing: -0.30px;
       color: var(--text-title);
-      font-weight: 700;
       padding: 1rem 2rem;
       text-align: center;
       line-height: 1.5rem;
-      text-transform: uppercase;
     }
 
     td {
@@ -27,6 +26,16 @@ export const Container = styled.main`
       color: var(--base-text);
       border-radius: 0.25rem;
       text-align: center;
+
+      &.positive{
+        color: var(--green);
+        font-weight: 700;
+      }
+
+      &.negative{
+        color: var(--red);
+        font-weight: 700;
+      }
     }
 
     .link {

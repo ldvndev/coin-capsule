@@ -21,13 +21,15 @@ export function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    api.get('/?key=c8415076f55a0324&pref=BRL')
+    api.get('/?key=b4cd8f8fb3de94c6')
     .then(response => {
-      const coinsData = response.data.coins.slice(0, 20)
+      const coinsData = response.data.coins.slice(0, 15)
       
       setCoins(coinsData);
     })
   }, []);
+
+  console.log(coins)
 
   function handleSearchCoin(event: FormEvent) {
     event.preventDefault();
@@ -55,7 +57,7 @@ export function Home() {
               <th>Coin</th>
               <th>Value Market</th>
               <th>Price</th>
-              <th>Volume</th>
+              <th>24h Change</th>
             </tr>
           </thead>
 
@@ -81,6 +83,7 @@ export function Home() {
                 </td>
                 <td 
                   data-label="Volume"
+                  className={Number(coin.delta_24h) > 0 ? 'negative' : 'positive'}
                 >
                   <span>
                     {coin.delta_24h}
