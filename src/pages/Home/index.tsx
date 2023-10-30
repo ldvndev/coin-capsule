@@ -1,10 +1,10 @@
 import { api } from '../../services/api';
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { FormEvent, useEffect, useState } from 'react'
 
 import { BiSearch } from 'react-icons/bi';
 
-import { Container, Content  } from './styles';
+import { Container, Content } from './styles';
 
 interface CoinsType {
   name: string;
@@ -17,21 +17,32 @@ interface CoinsType {
 
 export function Home() {
   const [coins, setCoins] = useState<CoinsType[]>([]);
+  const [searchInputValue, setSearchInputValue] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
-    api.get('/?key=b4cd8f8fb3de94c6&pref=BRL')
+    api.get('/?key=c8415076f55a0324&pref=BRL')
     .then(response => {
-
-      setCoins(response.data.coins.slice(0, 20));
+      const coinsData = response.data.coins.slice(0, 20)
+      
+      setCoins(coinsData);
     })
   }, []);
 
+  function handleSearchCoin(event: FormEvent) {
+    event.preventDefault();
+
+    navigate(`details/${searchInputValue}`)
+  }
+
   return(
     <Container>
-      <Content>
+      <Content onSubmit={handleSearchCoin}>
         <input 
           type='text'  
-          placeholder='Search'
+          placeholder='Search (Ex: AXS...)'
+          value={searchInputValue}
+          onChange={event => setSearchInputValue(event.target.value)}
         />
         <button type="submit">
           <BiSearch  className='search-button' />
