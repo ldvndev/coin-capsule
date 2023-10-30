@@ -27,31 +27,23 @@ export const Container = styled.main`
       color: var(--base-text);
       border-radius: 0.25rem;
       text-align: center;
-
-      &.tdLass {
-        color: var(--red);
-      }
-
-      &.tdProfit {
-        color: var(--green);
-      }
-      
-
-      &:first-child {
-        color: var(--title);
-      }
     }
 
     .link {
       text-decoration: none;
-      color: var(--text-title);
-      font-weight: 700;
+      color: var(--base-text);
+      font-weight: 500;
 
-      transition: filter 0.2s;
+      transition: color 0.5s;
 
       &:hover {
-        filter: brightness(0.9);
+        color: var(--highlight);
       }
+    }
+
+    .span-link {
+      color: var(--base-text);
+      font-weight: 700;
     }
   }
 

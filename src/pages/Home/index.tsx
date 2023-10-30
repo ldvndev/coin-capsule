@@ -6,15 +6,25 @@ import { BiSearch } from 'react-icons/bi';
 
 import { Container, Content  } from './styles';
 
+interface CoinsType {
+  name: string;
+  price: string;
+  symbol: string;
+  delta_24h: string;
+  volume_24h: string;
+  market_cap: string;
+}
+
 export function Home() {
-  const [coinList, setCoinList] = useState([]);
+  const [coins, setCoins] = useState<CoinsType[]>([]);
 
   useEffect(() => {
-    api.get('/?key=c8415076f55a0324&pref=BRL')
-    .then(response => setCoinList(response.data))
-  }, [])
+    api.get('/?key=b4cd8f8fb3de94c6&pref=BRL')
+    .then(response => {
 
-  console.log(coinList);
+      setCoins(response.data.coins.slice(0, 20));
+    })
+  }, []);
 
   return(
     <Container>
@@ -39,16 +49,34 @@ export function Home() {
           </thead>
 
           <tbody>
-            <tr>
-              <td data-label="Coin">
-                <Link className='link' to="/details/btc">
-                  <span>Bitcoin</span> | BTC
-                </Link>
-              </td>
-              <td data-label="Price">R$ 2000,00</td>
-              <td data-label="Value Market">R$ 50,00</td>
-              <td data-label="Volume" className='tdLass'><span>-4.3</span></td>
-            </tr>
+            {coins.map(coin => (
+              <tr key={coin.name}>
+                <td data-label="Coin">
+                  <Link className='link' to={`/details/${coin.symbol}`}>
+                    <span className='span-link'>{coin.name}</span> | {coin.symbol}
+                  </Link>
+                </td>
+                <td data-label="Value Market">
+                {Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                  }).format(+coin.market_cap)}
+                </td>
+                <td data-label="Price">
+                {Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                  }).format(+coin.price)}
+                </td>
+                <td 
+                  data-label="Volume"
+                >
+                  <span>
+                    {coin.delta_24h}
+                  </span>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
     </Container>

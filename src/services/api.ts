@@ -6,5 +6,5 @@ export const api = axios.create({
 
 /* 
 API Key:  c8415076f55a0324
-url : https://coinlib.io/api/v1/coinlist?key=c8415076f55a0324&pref=BRL&page=1&order=volume_desc
+url : https://sujeitoprogramador.com/api-cripto/?key=b4cd8f8fb3de94c6
 */
