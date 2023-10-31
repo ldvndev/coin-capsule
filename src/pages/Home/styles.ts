@@ -18,6 +18,17 @@ export const Container = styled.main`
       line-height: 1.5rem;
     }
 
+    p {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: -0.30px;
+      padding: 1rem 2rem;
+      text-align: center;
+      line-height: 1.5rem;
+      color: var(--text-title);
+    }
+  
     td {
       padding: 1rem 2rem;
       border: 0;

@@ -1,7 +1,6 @@
-import { api } from '../../services/api';
 import { Link, useNavigate } from 'react-router-dom';
-import { FormEvent, useEffect, useState } from 'react'
-
+import { FormEvent, useState } from 'react'
+import { useFetch } from '../../hooks/useFetch';
 import { BiSearch } from 'react-icons/bi';
 
 import { Container, Content } from './styles';
@@ -16,20 +15,9 @@ interface CoinsType {
 }
 
 export function Home() {
-  const [coins, setCoins] = useState<CoinsType[]>([]);
   const [searchInputValue, setSearchInputValue] = useState('');
+  const { data: coins, isFetching } = useFetch<CoinsType[]>('/?key=c8415076f55a0324')
   const navigate = useNavigate();
-
-  useEffect(() => {
-    api.get('/?key=b4cd8f8fb3de94c6')
-    .then(response => {
-      const coinsData = response.data.coins.slice(0, 15)
-      
-      setCoins(coinsData);
-    })
-  }, []);
-
-  console.log(coins)
 
   function handleSearchCoin(event: FormEvent) {
     event.preventDefault();
@@ -60,9 +48,10 @@ export function Home() {
               <th>24h Change</th>
             </tr>
           </thead>
-
+          
           <tbody>
-            {coins.map(coin => (
+            { isFetching && <p>Loading ...</p>}
+            {coins?.map(coin => (
               <tr key={coin.name}>
                 <td data-label="Coin">
                   <Link className='link' to={`/details/${coin.symbol}`}>
