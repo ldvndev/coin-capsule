@@ -1,4 +1,4 @@
-<div align='center'><img style="width:30%" src='./public/favicon.png'/></div>
+<div align='center'><img style="width:15%" src='./public/favicon.png'/></div>
 
 <h2>Coin Capsule</h2>
 
