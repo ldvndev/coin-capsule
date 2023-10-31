@@ -37,6 +37,17 @@ export const Content = styled.div`
   p {
     font-size: 1rem;
     color: var(--base-text);
+
+    strong {
+      color: var(--text-title);
+    }
   }
-  
+
+  .profit {
+    color: #12f98a;
+  }
+
+  .loss {
+    color: #F91257;
+  }
 `
