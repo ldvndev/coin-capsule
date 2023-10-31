@@ -32,7 +32,6 @@ export function Details() {
 
   return(
     <Container>
-      
       <Content>
         <header>
           {isFetching && <h2>Loading information...</h2>}
@@ -41,27 +40,7 @@ export function Details() {
         </header>
 
         <div>
-          <p><strong>Price:  </strong>  
-            {new Intl.NumberFormat('pt-BR', {
-              style: 'currency',
-              currency: 'BRL'
-            }).format(Number(details?.price))}
-          </p>
-          <p><strong>Price:  </strong>  
-            {new Intl.NumberFormat('pt-BR', {
-              style: 'currency',
-              currency: 'BRL'
-            }).format(Number(details?.low_24h))}
-          </p>
-          <p><strong>Price:  </strong>  
-            {details?.delta_24h}
-          </p>
-          <p><strong>Price:  </strong>  
-            {new Intl.NumberFormat('pt-BR', {
-              style: 'currency',
-              currency: 'BRL'
-            }).format(Number(details?.market_cap))}
-          </p>
+         
         </div>
       </Content>
     </Container>
