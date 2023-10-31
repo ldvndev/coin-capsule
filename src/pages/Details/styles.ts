@@ -42,12 +42,4 @@ export const Content = styled.div`
       color: var(--text-title);
     }
   }
-
-  .profit {
-    color: #12f98a;
-  }
-
-  .loss {
-    color: #F91257;
-  }
 `

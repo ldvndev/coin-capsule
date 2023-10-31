@@ -44,7 +44,6 @@ export function Details() {
       .finally(() => {
         setIsFetching(false);
       })
-
   }, [cripto])
 
   return(
@@ -64,7 +63,7 @@ export function Details() {
         </p>
         <p>
           <strong>Delta 24h: </strong> 
-          <span className={Number(details?.delta_24h) >= 0 ? 'loss' : 'profit'}>
+          <span>
             {details?.delta_24h}
           </span>
         </p>

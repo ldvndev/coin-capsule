@@ -37,16 +37,6 @@ export const Container = styled.main`
       color: var(--base-text);
       border-radius: 0.25rem;
       text-align: center;
-
-      &.positive{
-        color: var(--green);
-        font-weight: 700;
-      }
-
-      &.negative{
-        color: var(--red);
-        font-weight: 700;
-      }
     }
 
     .link {

@@ -72,7 +72,6 @@ export function Home() {
                 </td>
                 <td 
                   data-label="Volume"
-                  className={Number(coin.delta_24h) > 0 ? 'negative' : 'positive'}
                 >
                   <span>
                     {coin.delta_24h}
